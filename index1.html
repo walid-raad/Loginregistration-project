@@ -101,5 +101,69 @@
         <p>Don't have an account? <a href="register.html">Sign up now</a></p>
       </footer>
     </div>
+    <script>
+      function myMenuFunction() {
+        var i = document.getElementById("navMenu");
+
+        if (i.className === "nav-menu") {
+          i.className += " responsive";
+        } else {
+          i.className = "nav-menu";
+        }
+      }
+
+      var a = document.getElementById("loginBtn");
+      var b = document.getElementById("registerBtn");
+      var x = document.getElementById("login");
+      var y = document.getElementById("register");
+
+      function login() {
+        x.style.left = "4px";
+        y.style.right = "-520px";
+        a.className += " white-btn";
+        b.className = "btn";
+        x.style.opacity = 1;
+        y.style.opacity = 0;
+      }
+
+      function register() {
+        x.style.left = "-510px";
+        y.style.right = "5px";
+        a.className = "btn";
+        b.className += " white-btn";
+        x.style.opacity = 0;
+        y.style.opacity = 1;
+      }
+
+      function handleLogin() {
+        const username = document.getElementById("loginUsername").value;
+        const password = document.getElementById("loginPassword").value;
+        const rememberMe = document.getElementById("login-check").checked;
+        if (username && password) {
+          localStorage.setItem("loginUsername", username);
+          localStorage.setItem("loginPassword", password);
+          localStorage.setItem("loginRememberMe", rememberMe);
+        }
+
+        alert("Login data saved to local storage.");
+      }
+
+      function handleRegister() {
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const email = document.getElementById("registerEmail").value;
+        const password = document.getElementById("registerPassword").value;
+        const rememberMe = document.getElementById("register-check").checked;
+        if (firstName && lastName && email && password) {
+          localStorage.setItem("registerFirstName", firstName);
+          localStorage.setItem("registerLastName", lastName);
+          localStorage.setItem("registerEmail", email);
+          localStorage.setItem("registerPassword", password);
+          localStorage.setItem("registerRememberMe", rememberMe);
+        }
+
+        alert("Registration data saved to local storage.");
+      }
+    </script>
   </body>
 </html>
